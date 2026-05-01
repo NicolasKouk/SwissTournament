@@ -1,6 +1,6 @@
 from player import Player
 from standings import Standings
-from utils import is_in_list_of_pairs
+from utils import is_in_list_of_pairs, is_valid_score, result_to_scores
 
 N = 5 # number of rounds
 
@@ -15,14 +15,37 @@ standings = Standings(players)
 print(standings)
 standings.shuffle()
 print()
-print(standings)
 
 # begin tournament
 n = 1
 while(n <= 5):
     print(standings)
-    print("Next matches:")
     print()
+
+    print("Round " + str(n) + ":")
+    next_matches = standings.find_next_matches()
+    for (i,j) in next_matches:
+        print(i, "vs", j)
+
+    for (p1,p2) in next_matches:
+        result = ""
+        while not is_valid_score(result):
+            result = input("Type result for " + str(p1.name) + " vs " + str(p2.name) + "  ")
+        scores = result_to_scores(result)
+        if scores[0] > scores[1]:
+            p1.wins += 1
+            p2.losses += 1
+        else:
+            p2.wins += 1
+            p1.losses += 1
+        p1.ptsFor += scores[0]
+        p1.ptsAgainst += scores[1]
+        p2.ptsFor += scores[1]
+        p2.ptsAgainst += scores[0]
+
+        p1.points_calibration()
+        p2.points_calibration()
     n += 1
+    standings.table=sorted(standings.table, key = lambda x: (-x.points, x.ptsAgainst-x.ptsFor))
     a = input()
 

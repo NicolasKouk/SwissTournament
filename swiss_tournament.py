@@ -1,3 +1,4 @@
+from match import Match
 from player import Player
 from standings import Standings
 from utils import is_in_list_of_pairs, is_valid_score, result_to_scores
@@ -19,6 +20,7 @@ print()
 # begin tournament
 n = 1
 while(n <= 5):
+    print(20*"\n")
     print(standings)
     print()
 
@@ -26,6 +28,7 @@ while(n <= 5):
     next_matches = standings.find_next_matches()
     for (i,j) in next_matches:
         print(i, "vs", j)
+    print()
 
     for (p1,p2) in next_matches:
         result = ""
@@ -42,6 +45,9 @@ while(n <= 5):
         p1.ptsAgainst += scores[1]
         p2.ptsFor += scores[1]
         p2.ptsAgainst += scores[0]
+
+        p1.hasPlayedWith.append(Match(p2, scores[0], scores[1]))
+        p2.hasPlayedWith.append(Match(p1, scores[1], scores[0]))
 
         p1.points_calibration()
         p2.points_calibration()

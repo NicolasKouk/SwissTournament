@@ -42,6 +42,6 @@ class Standings:
     def __str__(self):
         s = ""
         for p in self.table:
-            s += str(p)
+            s += p.long_print()
             s += "\n"
         return s

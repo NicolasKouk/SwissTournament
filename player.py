@@ -24,9 +24,19 @@ class Player:
 		return self.ptsAgainst
     
 	def __str__(self):
-		s = self.name + " " + str(self.wins) + "-" + str(self.losses) + " " + str(self.points) + "pts"
-		s += " (" + str(self.ptsFor) + "-" + str(self.ptsAgainst) + ")"
+		s = self.name + " (" + str(self.points) + "pts)"
 		return s
 	
+	def long_print(self):
+		s = self.name + (15-len(self.name))*" "
+		s += str(self.wins) + "-" + str(self.losses) + " " + str(self.points) + "pts "
+		s += "(" + str(self.ptsFor) + "-" + str(self.ptsAgainst) + ")        "
+		for m in self.hasPlayedWith:
+			if m.score1 > m.score2:
+				s += "W " + str(m.score1) + "-" + str(m.score2) + " vs " + str(m.opponent.name)
+			else:
+				s += "L " + str(m.score1) + "-" + str(m.score2) + " vs " + str(m.opponent.name)
+		return s
+
 	def points_calibration(self):
 		self.points = 2*self.wins + self.losses

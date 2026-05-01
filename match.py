@@ -1,9 +1,6 @@
 class Match:
-    def __init__(self, p1, p2):
-        self.player1 = p1
-        self.player2 = p2
-        score1 = 0
-        score2 = 0
+    def __init__(self, opp, n1, n2):
+        self.opponent = opp
+        self.score1 = n1
+        self.score2 = n2
     
-    def award_points():
-        

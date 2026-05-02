@@ -7,6 +7,7 @@ class Player:
 		self.hasPlayedWith = []
 		self.ptsFor = 0
 		self.ptsAgainst = 0
+		self.byes = 0
 
 	def getName(self):
 		return self.name
@@ -32,10 +33,7 @@ class Player:
 		s += str(self.wins) + "-" + str(self.losses) + " " + str(self.points) + "pts "
 		s += "(" + str(self.ptsFor) + "-" + str(self.ptsAgainst) + ")        "
 		for m in self.hasPlayedWith:
-			if m.score1 > m.score2:
-				s += "W " + str(m.score1) + "-" + str(m.score2) + " vs " + str(m.opponent.name) + "  "
-			else:
-				s += "L " + str(m.score1) + "-" + str(m.score2) + " vs " + str(m.opponent.name) + "  "
+			s += str(m)
 		return s
 
 	def points_calibration(self):

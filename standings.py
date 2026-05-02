@@ -11,10 +11,21 @@ class Standings:
         random.shuffle(self.table)
     
     def find_next_matches(self):
+        nop = len(self.table) # number of players
         matches_list = []
         p1 = Player("")
         removed_match = (0,0)
-        while len(matches_list) != len(self.table)/2:
+
+        # find the bye
+        if nop % 2 != 0:
+            for i in range(nop-1, 0, -1):
+                if self.table[i].byes == 0:
+                    matches_list.append((self.table[i], "Bye"))
+                    self.table[i].byes = 1
+                    break
+
+
+        while len(matches_list) < len(self.table)/2:
             for p in self.table:
                 if not is_in_list_of_pairs(matches_list, p):
                     p1 = p

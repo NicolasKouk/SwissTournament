@@ -1,6 +1,6 @@
-Nicolas
-Niki
-Klis
-Nikolakis
-Ariadni
-gomoulis
+Alice
+Bob
+Charlie
+David
+Emily
+Felix

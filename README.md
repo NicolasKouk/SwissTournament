@@ -22,3 +22,4 @@ In the end, the final standings are displayed and the winner is revealed.
 # Notes
 
 - This has been made for table tennis, so no draws are supported. 
+- In case the number of players is even, there is a player in every round that doesn't play a match (Bye). This player is selected as the weakest player that has not yet received a Bye before. Such a player is awarded a win in that round. 

@@ -22,7 +22,7 @@ class Standings:
                     break
 
             remaining = [p for p in self.table if not is_in_list_of_pairs(matches_list, p)]            
-            possible_opponents1 = [p for p in remaining if (p not in p1.hasPlayedWith and p1 != p)]
+            possible_opponents1 = [p for p in remaining if (p not in [ph.opponent for ph in p1.hasPlayedWith] and p1 != p)]
             possible_opponents = [p for p in possible_opponents1 if (p1, p) != removed_match]
 #            for p_debug in possible_opponents:
 #                print(p_debug)

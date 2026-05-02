@@ -33,9 +33,9 @@ class Player:
 		s += "(" + str(self.ptsFor) + "-" + str(self.ptsAgainst) + ")        "
 		for m in self.hasPlayedWith:
 			if m.score1 > m.score2:
-				s += "W " + str(m.score1) + "-" + str(m.score2) + " vs " + str(m.opponent.name)
+				s += "W " + str(m.score1) + "-" + str(m.score2) + " vs " + str(m.opponent.name) + "  "
 			else:
-				s += "L " + str(m.score1) + "-" + str(m.score2) + " vs " + str(m.opponent.name)
+				s += "L " + str(m.score1) + "-" + str(m.score2) + " vs " + str(m.opponent.name) + "  "
 		return s
 
 	def points_calibration(self):

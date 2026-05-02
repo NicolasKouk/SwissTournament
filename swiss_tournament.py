@@ -55,3 +55,9 @@ while(n <= 5):
     standings.table=sorted(standings.table, key = lambda x: (-x.points, x.ptsAgainst-x.ptsFor))
     a = input()
 
+
+
+print(20*"\n")
+print("Final Standings:")
+print(standings)
+print()

@@ -7,8 +7,14 @@ class Standings:
     def __init__(self, table):
         self.table = table
     
-    def shuffle(self):
-        random.shuffle(self.table)
+    def shuffle(self, last_player_gets_the_bye):
+        if not last_player_gets_the_bye:
+            random.shuffle(self.table)
+        else:
+            temp = self.table[:-1]
+            last_elem = self.table[-1]
+            random.shuffle(temp)
+            self.table = temp + [last_elem]
     
     def find_next_matches(self):
         nop = len(self.table) # number of players

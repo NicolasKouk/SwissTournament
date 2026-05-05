@@ -4,6 +4,7 @@ from standings import Standings
 from utils import is_in_list_of_pairs, is_valid_score, result_to_scores
 
 N = 5 # number of rounds
+last_player_gets_the_bye = True
 
 f = open("playerslist.txt")
 players = []
@@ -13,9 +14,8 @@ f.close()
 
 standings = Standings(players)
 
-print(standings)
 # At first a random draw is made to determine the first pairings
-standings.shuffle()
+standings.shuffle(last_player_gets_the_bye)
 print()
 
 # begin tournament
@@ -62,7 +62,7 @@ while(n <= 5):
             p1.points_calibration()
             p2.points_calibration()
     n += 1
-    standings.table=sorted(standings.table, key = lambda x: (-x.points, x.ptsAgainst-x.ptsFor, -x.ptsFor))
+    standings.table=sorted(standings.table, key = lambda x: (-x.points, x.ptsAgainst-x.ptsFor, x.buchholz, -x.ptsFor))
     a = input("\nPress enter to continue...")
 
 

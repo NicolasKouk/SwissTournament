@@ -52,7 +52,10 @@ class Standings:
 
     def __str__(self):
         s = ""
+        counter = 1
         for p in self.table:
+            s += (2-len(str(counter))) * " " + str(counter) + ". " 
             s += p.long_print()
             s += "\n"
+            counter += 1
         return s

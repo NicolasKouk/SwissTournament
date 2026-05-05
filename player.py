@@ -8,6 +8,7 @@ class Player:
 		self.ptsFor = 0
 		self.ptsAgainst = 0
 		self.byes = 0
+		self.buchholz = 0
 
 	def getName(self):
 		return self.name
@@ -31,6 +32,8 @@ class Player:
 	def long_print(self):
 		s = self.name + (15-len(self.name))*" "
 		s += str(self.wins) + "-" + str(self.losses) + " " + str(self.points) + "pts "
+		if self.buchholz != 0:
+			s += str(self.buchholz) + (4-len(str(self.buchholz))) * " "
 		s += "(" + str(self.ptsFor) + "-" + str(self.ptsAgainst) + ")        "
 		for m in self.hasPlayedWith:
 			s += str(m)
@@ -38,3 +41,20 @@ class Player:
 
 	def points_calibration(self):
 		self.points = 2*self.wins + self.losses
+
+	def buchholz_calibration(self, standings):
+		if not self.hasPlayedWith:
+			return 0
+		mysum = 0
+		for m in self.hasPlayedWith:
+			if m.opponent == "Bye":
+				mysum += len(standings.table)
+				continue
+			opponent_name = m.opponent.name
+			for i in range(len(standings.table)):
+				if standings.table[i].name == opponent_name:
+					mysum += i
+					break
+		self.buchholz = mysum / len(self.hasPlayedWith)
+
+

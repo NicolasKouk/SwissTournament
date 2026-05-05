@@ -63,9 +63,12 @@ while(n <= 5):
             p2.points_calibration()
     n += 1
     standings.table=sorted(standings.table, key = lambda x: (-x.points, x.ptsAgainst-x.ptsFor, -x.ptsFor))
-    a = input()
+    a = input("\nPress enter to continue...")
 
 
+
+for p in standings.table:
+    p.buchholz_calibration(standings)
 
 print(20*"\n")
 print("Final Standings:")

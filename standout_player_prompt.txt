@@ -1,0 +1,64 @@
+You are analyzing a Swiss-system table tennis tournament to identify the **standout performer who did NOT finish on the podium (top 3)**.
+
+### Objective
+
+Select **1 standout player outside the top 3**, based on:
+
+* Strength of Schedule (primary)
+* Upset wins vs higher-ranked players
+* Points efficiency (points for / points against, margins)
+* Loss quality (close losses vs top players preferred over bad losses)
+
+Use clutch/performance context as a tiebreaker.
+
+---
+
+### Data
+
+#### Final Standings
+
+(Format: Name | Wins-Losses | Total Points | PointsFor-PointsAgainst | List of Matches)
+
+[PASTE HERE]
+
+---
+
+### Instructions
+
+1. **Ignore top 3 players completely** for final selection.
+2. For each remaining player, evaluate:
+
+   * Average opponent strength (based on final rankings)
+   * Number and quality of upsets (wins vs higher-ranked players)
+   * Points ratio and average margin
+   * Nature of losses (close vs heavy, opponent strength)
+3. If needed, also consider:
+
+   * Performance vs top 5 players
+   * Close-set performance (e.g. 11–9, 12–10)
+   * Any clear signs of dominance or resilience
+
+---
+
+### Output Format
+
+1. **Standout Player:** [Name]
+
+2. **Why (concise but specific):**
+
+* Strength of schedule:
+* Upsets:
+* Efficiency:
+* Loss quality:
+* (Optional) Clutch factor:
+
+3. **Runner-up candidates (max 2):**
+
+* Name + one-line reason each
+
+4. **Optional insight (1–2 lines):**
+   Any interesting pattern (e.g. “hardest path in the tournament”, “best vs top players”, etc.)
+
+---
+
+Be decisive. If uncertain between players, explain clearly why—but still pick one.

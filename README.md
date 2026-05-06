@@ -21,10 +21,10 @@ After 5 rounds, the final standings are displayed and the winner is revealed.
 
 ### Tie Breakers:
 Tie breakers are used to deterministically rank all players. In order, they are:
-- Total Points. 2 points are awarded for each win, and 1 point for each loss. 
-- MBS. It stands for Modified Buchholz Score. It calculates the average rank of the opponents that each player faced. It gives an idea of how difficult schedule each player has. It is only active and displayed at the final standings. 
-- Set Point difference. The player that cumulatively scores the most points and conceids the least is being prefered. 
-- Set Points for. The cumulative points each player scores in each game. 
+1. Total Points. 2 points are awarded for each win, and 1 point for each loss. 
+2. MBS. It stands for Modified Buchholz Score. It calculates the average rank of the opponents that each player faced. It gives an idea of how difficult schedule each player has. It is only active and displayed at the final standings.
+3. Set Point difference. The player that cumulatively scores the most points and conceids the least is being prefered.
+4. Set Points for. The cumulative points each player scores in each game. 
 
 ## Notes
 

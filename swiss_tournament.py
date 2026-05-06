@@ -62,7 +62,7 @@ while(n <= 5):
             p1.points_calibration()
             p2.points_calibration()
     n += 1
-    standings.table=sorted(standings.table, key = lambda x: (-x.points, x.ptsAgainst-x.ptsFor, x.buchholz, -x.ptsFor))
+    standings.table=sorted(standings.table, key = lambda x: (-x.points, x.buchholz, x.ptsAgainst-x.ptsFor, -x.ptsFor))
     a = input("\nPress enter to continue...")
 
 

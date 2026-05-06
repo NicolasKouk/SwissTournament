@@ -59,6 +59,10 @@ class Standings:
     def __str__(self):
         s = ""
         counter = 1
+        if self.table[0].buchholz == 0:
+            s += "    Name           W-L PTS   PF-PA            Matches Played\n"
+        else:
+            s += "    Name           W-L PTS  MBS PF-PA        Matches Played\n"
         for p in self.table:
             s += (2-len(str(counter))) * " " + str(counter) + ". " 
             s += p.long_print()

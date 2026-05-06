@@ -19,8 +19,8 @@ standings.shuffle(last_player_gets_the_bye)
 print()
 
 # begin tournament
-n = 1
-while(n <= 5):
+n = 1; a = "y"
+while a != "n":
     print(20*"\n")
     print(standings)
     print()
@@ -61,9 +61,15 @@ while(n <= 5):
 
             p1.points_calibration()
             p2.points_calibration()
-    n += 1
     standings.table=sorted(standings.table, key = lambda x: (-x.points, x.buchholz, x.ptsAgainst-x.ptsFor, -x.ptsFor))
-    a = input("\nPress enter to continue...")
+    if n >= N-1:
+        a = input("\nDo you want to continue? [y/n]  ")
+        while a not in ["y", "n"]:
+            a = input("Do you want to continue? [y/n]  ")
+    else:
+        a = input("\nPress enter to continue...")
+        a = "y"
+    n += 1
 
 
 

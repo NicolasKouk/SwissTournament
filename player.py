@@ -55,6 +55,6 @@ class Player:
 				if standings.table[i].name == opponent_name:
 					mysum += i
 					break
-		self.buchholz = mysum / len(self.hasPlayedWith)
+		self.buchholz = round(mysum / len(self.hasPlayedWith), 1)
 
 

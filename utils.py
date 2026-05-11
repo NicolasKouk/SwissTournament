@@ -1,3 +1,5 @@
+import time
+
 # finds if the element x exists in any of the pairs that the list mylist contains
 def is_in_list_of_pairs(mylist, x):
     return (x in [i for (i,j) in mylist]) or (x in [j for (i,j) in mylist])
@@ -11,3 +13,8 @@ def is_valid_score(s):
 
 def result_to_scores(s):
     return [int(i) for i in s.strip().split("-")]
+
+def slow_print(s, waiting):
+    for c in s:
+        print(c, end="", flush=True)
+        time.sleep(waiting)

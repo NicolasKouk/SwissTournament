@@ -1,10 +1,12 @@
 from match import Match
 from player import Player
 from standings import Standings
-from utils import is_in_list_of_pairs, is_valid_score, result_to_scores
+from utils import is_in_list_of_pairs, is_valid_score, result_to_scores, slow_print
+import time
 
 N = 5 # number of rounds
 last_player_gets_the_bye = True
+wait_for_draw = True
 
 f = open("playerslist.txt")
 players = []
@@ -29,7 +31,11 @@ while a != "n":
     next_matches = standings.find_next_matches()
     for (i,j) in next_matches:
         if j != "Bye":
-            print(i, "vs", j)
+            slow_print(str(i), wait_for_draw*0.2)
+            print (" vs ", end="", flush=True)
+            time.sleep(wait_for_draw*0.5)
+            slow_print(str(j), wait_for_draw*0.2)
+            print()
         else:
             print(i, j)
     print()
@@ -61,7 +67,7 @@ while a != "n":
 
             p1.points_calibration()
             p2.points_calibration()
-    standings.table=sorted(standings.table, key = lambda x: (-x.points, x.buchholz, x.ptsAgainst-x.ptsFor, -x.ptsFor))
+    standings.table=sorted(standings.table, key = lambda x: (-x.points, x.buchholz, x.ptsAgainst-x.ptsFor, -x.ptsFor, x.name))
     if n >= N-1:
         a = input("\nDo you want to continue? [y/n]  ")
         while a not in ["y", "n"]:

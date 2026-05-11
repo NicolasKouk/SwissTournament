@@ -8,7 +8,7 @@ class Player:
 		self.ptsFor = 0
 		self.ptsAgainst = 0
 		self.byes = 0
-		self.buchholz = 0
+		self.buchholz = 0.0
 
 	def getName(self):
 		return self.name
@@ -45,7 +45,7 @@ class Player:
 	def buchholz_calibration(self, standings):
 		if not self.hasPlayedWith:
 			return 0
-		mysum = 0
+		mysum = 0.0
 		for m in self.hasPlayedWith:
 			if m.opponent == "Bye":
 				mysum += len(standings.table)
@@ -53,7 +53,7 @@ class Player:
 			opponent_name = m.opponent.name
 			for i in range(len(standings.table)):
 				if standings.table[i].name == opponent_name:
-					mysum += i
+					mysum += i+1
 					break
 		self.buchholz = round(mysum / len(self.hasPlayedWith), 1)
 

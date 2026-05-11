@@ -67,7 +67,7 @@ while a != "n":
 
             p1.points_calibration()
             p2.points_calibration()
-    standings.table=sorted(standings.table, key = lambda x: (-x.points, x.buchholz, x.ptsAgainst-x.ptsFor, -x.ptsFor, x.name))
+    standings.table=sorted(standings.table, key = lambda x: (-x.points, x.ptsAgainst-x.ptsFor, -x.ptsFor, x.name))
     if n >= N-1:
         a = input("\nDo you want to continue? [y/n]  ")
         while a not in ["y", "n"]:
